@@ -1,0 +1,70 @@
+import java.util.Scanner; //Leitura de dados.
+public class TP1 {
+
+	public static void main(String[] args) {
+		int opcao_menu = 0, opcao_tema = 0; 
+		int i = 0 , j = 0; 
+		String temas[][] = new String[50][50]; //Vetor onde poderei registrar até 50 temas.
+		int quantidade = 1; //Variavel de contagem.
+		Scanner ler = new Scanner (System.in); //Leitura de dados.
+		do {
+			opcao_menu = Menu(opcao_menu, ler); //Função de menu
+			switch(opcao_menu) {
+			case 1: System.out.println("Gerenciar Temas");
+				Menu_Tema(opcao_tema, ler);// Função  de menu de tema
+				switch(opcao_tema) {
+				case 1: 
+ 					temas[i][j] = Gerenciar_tema(opcao_tema, ler, temas, i, j); //Funcao que le o tema registrado
+				
+				}
+																	//for(int i=1; i<=quantidade; i++) { 
+																	//	System.out.println("Digite o tema que gostaria de cadastrar: \n");
+																	//	temas[i] = ler.nextLine(); //Leitura de cada tema em uma posição diferente.
+																	//	quantidade ++; //
+																	//	System.out.println("Na posição "  + i +  " Foi armazenado " + temas[i]); //Ele não printa aq
+																	//}	
+			break;
+			case 2: System.out.println("Gerenciar Palavras \n");
+				System.out.println("vc selecionou 2\n");
+			break;
+			case 3: System.out.println("Jogar \n");
+				System.out.println("Vc selecionou 3\n");
+			break;
+			case 4: System.out.println("Sair \n");
+				System.out.println("Muito obrigado até a próxima\n"); //Saída do programa.
+			break;
+			default:
+				System.out.println("Opcao invalida, escolha uma\n"
+						+ "opção de 1 a 4\n"); //Caso o usuario digite opcoes fora desses valores.
+			}
+		}while(opcao_menu !=4); //Enquanto não se digitar 4 não sairei do looping.
+	}
+
+
+
+public static int Menu(int opcao_menu, Scanner ler) {
+	System.out.println("Bem vindos ao jogo da forca !!!");
+	System.out.println("1 - Gerenciar Temas: ");
+	System.out.println("2 - Gerenciar Palavras: ");
+	System.out.println("3 - Jogar: ");
+	System.out.println("4 - Sair: ");
+	System.out.println("Digite a opção desejada:");
+	opcao_menu =ler.nextInt(); //Leitura da opção desejada 
+		//Opcoes do menu.
+	return opcao_menu;
+}
+public static int Menu_Tema(int opcao_tema, Scanner ler) {
+	//Menu de opcoes dos temas do case 1.
+	System.out.println(" 1 - Cadastrar tema: ");
+	System.out.println(" 2 - Buscar tema: ");
+	System.out.println(" 3 - Excluir tema: ");
+	System.out.println(" Digite a opcao desejada: ");
+	opcao_tema = ler.nextInt(); //Leitura de opcao de tema.	
+	return opcao_tema; //Retorno o menu de opcao de temas
+}
+public static int Gerenciar_tema(int opcao_tema, Scanner ler, String temas[][], int i, int j) {
+	System.out.println(" 1 - Cadastrar tema:");
+	temas[i][j] = ler.next(); //Leitura do tema.
+	return temas[i][j]; //Retorno o tema em uma dada posição
+}
+}

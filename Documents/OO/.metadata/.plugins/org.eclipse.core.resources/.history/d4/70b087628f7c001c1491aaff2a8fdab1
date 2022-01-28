@@ -1,0 +1,92 @@
+Scanner ler = new Scanner(System.in);
+    	String temas[][] = new String[50][50];
+    	String pesquisa;
+    	int verif = 0;
+    	int opc=0;
+    	int opc_tema = 0;
+    	int i = 0;
+    	String saida = "0";
+    	boolean verif1=false;
+    	//String nomeTema="";
+    	while(true) {
+    	System.out.println("1.Gerenciar temas\n 2.Gerenciar palavras\n 3.Jogar\n 4.Sair");
+    	opc = ler.nextInt();
+    	
+    	switch (opc) {
+    	case 1:
+    		System.out.println("1.Cadastrar tema\n 2.Excluir tema\n 3.Buscar tema");
+        	opc_tema = ler.nextInt();
+        	
+        	switch(opc_tema) {
+        	case 1:
+        		//C A D A S T R A R
+        		String nomeTema = " ";
+            	
+        		do {
+        		    
+            		System.out.println("Digite o nome do tema (para sair digite 0)");
+            		nomeTema = ler.next(); 
+            		if(nomeTema.equals(saida)) {
+            			verif1=true;
+            		}else {
+            		temas[0][i]=nomeTema;
+            		//System.out.println(temas[0][i]);
+            		//System.out.println(i);
+            		i++;
+            		}
+        			
+            	}while(!verif1);
+        		
+        		break;
+        	case 2:
+        		System.out.println("excluir");
+        		break;
+        	case 3:
+        		//BUSCAR
+        		System.out.println("Digite o tema a ser pesquisado");
+        		pesquisa = ler.next();
+        		
+        		buscar(temas,pesquisa, i);
+        		
+				 
+        		break;
+        	default:
+        		System.out.print("entrada invalida");
+        	}
+        	
+    		break;
+    		
+    	case 2:
+    		for(int c=0;c<i;c++) {
+    			System.out.println(temas[0][c]);
+    		}
+        	break;
+        	
+    	case 3:
+    		
+        	break;
+     
+    	default:
+    		
+    		System.out.print("entrada invalida");
+    	}
+    	
+    	}
+    }
+    
+    public static void buscar( String temas[][], String pesquisa, int i) {
+    	boolean foi_encontrado = false;
+    	for(int c=0;c<i;c++) {
+    		if(temas[0][c].equals(pesquisa)) {
+    			System.out.println("Tema encontrado na linha "+c);
+    			foi_encontrado=true;
+    		}
+		}
+    	if(!foi_encontrado) {
+    		System.out.println("Tema não encontrado!");
+    	}
+    	
+    
+    }
+  }
+    
